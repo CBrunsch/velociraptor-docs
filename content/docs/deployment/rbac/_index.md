@@ -16,11 +16,11 @@ as root to prevent permission problems sudo -u velociraptor ...
 Velociraptor uses a simple role-based access control framework. Certain actions require specific permissions, and users are granted roles which provide them with a set of permissions.
 
 The following roles are provided out-of-the-box:
-* **Administrator:** Can do anything without limits
-* **Reader:** Can read collected data and notebooks
-* **API**: Can connect over the API (more later)
-* **Analyst:** Has reader permissions and can create bulk downloads and edit notebooks
-* **Investigator:** Has analyst permissions and can schedule new collections and hunts
+* **administrator:** Can do anything without limits
+* **reader:** Can read collected data and notebooks
+* **api**: Can connect over the API (more later)
+* **analyst:** Has reader permissions and can create bulk downloads and edit notebooks
+* **investigator:** Has analyst permissions and can schedule new collections and hunts
 * **artifact_writer:** powerful role that allows the user to create and modify artifacts
 
 ## Granting a user role
@@ -32,7 +32,11 @@ Manipulate acls using the "acl show" "acl grant" command
 Your Velociraptor server is ready.
 You should have a valid SSL Cert and Avatar provided by Google OAuth2
 
-
+## Console commands
+Create and assign new users as follows (note, role names must be passed in small caps)
+```
+./velociraptor --config path/file.config.yaml user add --role administrator someuser somepass
+```
 {{% notice tip "Velociraptor Internals" %}}
 
 Velociraptor uses a filestore abstraction to store data.  By default,
